@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Items
+{% endblock %}
+
+{% block content %}
+<div>
+    <h1>Items</h1>
+    <div class="items">
+        {% for item in items %}
+            <a href="{% url "item-detail" item.id %}">
+                <div class="item">
+                    <h2>
+                        {{ item.name }}
+                    </h2>
+                    <p class="description">{{ item.description }}</p>
+                    <p class="item-price">{{ item.price }} {{item.currency}}</p>
+                </div>
+            </a>
+            {% empty %}
+            <p>No items found.</p>
+        {% endfor %} 
+    </div>
+    <div>
+        <h1>Order</h1>
+    </div>
+    <div class="orders">
+        {% for order in orders %}
+            <a href="{% url "order-detail" order.id %}">
+                <div class="order">
+                    <h2>Order {{ order.id }}</h2>
+                    <p>Total: {{ order.total_price }} <span class="item-price">{{order.currency}}</span></p>
+                </div>
+            </a>
+            {% empty %}
+            <p>No orders found.</p>
+        {% endfor %}
+    </div>
+    </div>
+{% endblock %}

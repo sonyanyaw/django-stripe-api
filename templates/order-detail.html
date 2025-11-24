@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}Order {{ order.id }}{% endblock %}
+
+{% block content %}
+
+<div class="order-detail">
+    <h1 class="title">Order {{ order.id }}</h1>
+
+    <h3>Items:</h3>
+    <ul>
+        {% for item in order.items.all %}
+            <li>
+                <strong>{{ item.name }}</strong> — {{ item.price }} <span class="item-price">{{ order.currency }}</span>
+                <br>
+                <small class="description">{{ item.description }}</small>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+    <div class="total">
+        {% if order.discount %}
+        <p class="discount"><strong>Discount:</strong> {{ order.discount.name }} — {{ order.discount.discount_percentage }}%</p>
+        {% endif %}
+
+        {% if order.tax %}
+        <p class="tax"><strong>Tax:</strong> {{ order.tax.name }} — {{ order.tax.tax_percentage }}%</p>
+        {% endif %}
+
+        <h2>Total: {{ order.total_price }} <span class="item-price">{{ order.currency }}</span></h2>
+    </div>
+
+    <div class="buy-order">
+        <button id="buy-order-button" 
+                data-order-id="{{ order.id }}" 
+                data-public-key="{{ public_key }}">
+            Pay for Order
+        </button>
+    </div>
+</div>
+
+{% endblock %}

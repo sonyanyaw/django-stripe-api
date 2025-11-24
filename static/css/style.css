@@ -1,0 +1,117 @@
+body {
+        font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.items, .orders {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px;
+    justify-items: center; 
+    margin: 0 100px;
+}
+
+.cancel, .success {
+    display: grid;
+    justify-items: center;
+    margin: 50px 100px;
+    font-size: 17pt;
+    font-weight: bold;
+}
+
+.item, .order {
+    min-width: 200px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #eee; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.item:hover, .order:hover {
+    border-color: rgba(128, 128, 128, 0.555); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    cursor: pointer;
+}
+
+.title {
+    margin-top: 0;
+    font-size: 20pt;
+    font-weight: 600;
+}
+
+.description {
+    font-size: 13pt;
+    color: rgba(90, 84, 84, 0.796);
+}
+
+.price {
+    text-transform: uppercase;
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+.item-price {
+    text-transform: uppercase;
+}
+
+button {
+    min-width: 180px;
+    max-width: 210px;
+    height: 38px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-size: 12pt;
+    background-color: rgb(162, 125, 196);
+    border-radius: 7px;
+
+}
+
+button:hover {
+    background-color: rgb(155, 112, 195);
+    border: #eee;
+}
+
+button:active {
+    background-color: rgb(167, 136, 195);
+    border: #eee;
+}
+
+.order-detail, .item-detail {
+    /* margin: 0 400px;
+    font-size: 14pt; */
+    max-width: 400px;
+    margin: 60px auto; /* Центрируем по горизонтали, отступ сверху */
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+    text-align: center;
+}
+
+h3 {
+    text-align: left;
+}
+
+li {
+    font-size: 14pt;
+    height: 65px;
+}
+
+.discount, .tax {
+    text-align: left;
+}
+
+.buy-order, .buy-item {
+    text-align: center; 
+    margin-top: 20px;
+}
